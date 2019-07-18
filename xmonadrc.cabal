@@ -1,0 +1,117 @@
+cabal-version: 2.0
+name: xmonadrc
+version: 1.0.0
+license: BSD3
+maintainer: fre@freux.fr
+author: Name Lastname
+synopsis: xmonadrc
+description:
+    xmonadrc
+category: algorithms
+build-type: Simple
+data-files:
+    ./gen/EITHER-ROOTCOMMAND-WMCOMMAND.dic
+    ./gen/EITHER-ROOTCOMMAND-WMCOMMAND.lm
+    ./gen/EITHER-ROOTCOMMAND-WMCOMMAND.vocab
+
+source-repository head
+
+library
+    exposed-modules:
+        XMonadrc
+        Voice
+    hs-source-dirs: src
+    default-language: Haskell2010
+    default-extensions: LambdaCase QuasiQuotes DefaultSignatures
+                        ExistentialQuantification RecordWildCards TypeSynonymInstances
+                        StandaloneDeriving FlexibleInstances TupleSections
+                        MultiParamTypeClasses NoImplicitPrelude OverloadedStrings
+                        OverloadedLists ViewPatterns OverloadedLabels DeriveFunctor
+                        TypeFamilies DeriveAnyClass DeriveGeneric DeriveDataTypeable
+                        DeriveFoldable DerivingStrategies TypeApplications MultiWayIf
+                        TemplateHaskell GADTs FlexibleContexts TypeOperators DataKinds
+                        PolyKinds AllowAmbiguousTypes FunctionalDependencies
+                        UndecidableInstances
+    ghc-options: -Wall -O0 -Wcompat -Wincomplete-uni-patterns
+                 -Widentities -Wredundant-constraints -Wcpp-undef -fwarn-tabs
+                 -fwarn-unused-imports -fwarn-missing-signatures
+                 -fwarn-name-shadowing -fprint-potential-instances
+                 -fwarn-unused-do-bind -fwarn-wrong-do-bind
+                 -fwarn-incomplete-patterns -Wincomplete-record-updates
+                 -Wmonomorphism-restriction -Wimplicit-prelude
+                 -Woverlapping-patterns -Wmissing-local-signatures
+                 -Wmissing-exported-signatures -Wmissing-export-lists
+                 -Wmissing-home-modules -Widentities -Wredundant-constraints
+                 -Wpartial-fields
+    build-depends:
+        base -any,
+        protolude -any,
+        typed-process -any,
+        xmonad-contrib -any,
+        xmonad -any,
+        process -any,
+        containers -any,
+        dbus -any,
+        temporary -any,
+        fdo-notify -any,
+        text -any,
+        unix -any,
+        units -any,
+        universe -any,
+        units-defs -any,
+        X11 -any,
+        generic-deriving -any
+
+executable xmonad
+    main-is: app/xmonad.hs
+    default-language: Haskell2010
+    default-extensions: LambdaCase QuasiQuotes DefaultSignatures
+                        ExistentialQuantification RecordWildCards TypeSynonymInstances
+                        StandaloneDeriving FlexibleInstances TupleSections
+                        MultiParamTypeClasses NoImplicitPrelude OverloadedStrings
+                        OverloadedLists ViewPatterns OverloadedLabels DeriveFunctor
+                        TypeFamilies DeriveAnyClass DeriveGeneric DeriveDataTypeable
+                        DeriveFoldable DerivingStrategies TypeApplications MultiWayIf
+                        TemplateHaskell GADTs FlexibleContexts TypeOperators DataKinds
+                        PolyKinds AllowAmbiguousTypes FunctionalDependencies
+                        UndecidableInstances
+    ghc-options: -Wall -O0 -Wcompat -Wincomplete-uni-patterns
+                 -Widentities -Wredundant-constraints -Wcpp-undef -fwarn-tabs
+                 -fwarn-unused-imports -fwarn-missing-signatures
+                 -fwarn-name-shadowing -fprint-potential-instances
+                 -fwarn-unused-do-bind -fwarn-wrong-do-bind
+                 -fwarn-incomplete-patterns -Wincomplete-record-updates
+                 -Wmonomorphism-restriction -Wimplicit-prelude
+                 -Woverlapping-patterns -Wmissing-local-signatures
+                 -Wmissing-exported-signatures -Wmissing-export-lists
+                 -Wmissing-home-modules -Widentities -Wredundant-constraints
+                 -Wpartial-fields
+    build-depends:
+        xmonadrc -any
+
+executable voice-server
+    main-is: app/voice-server.hs
+    default-language: Haskell2010
+    default-extensions: LambdaCase QuasiQuotes DefaultSignatures
+                        ExistentialQuantification RecordWildCards TypeSynonymInstances
+                        StandaloneDeriving FlexibleInstances TupleSections
+                        MultiParamTypeClasses NoImplicitPrelude OverloadedStrings
+                        OverloadedLists ViewPatterns OverloadedLabels DeriveFunctor
+                        TypeFamilies DeriveAnyClass DeriveGeneric DeriveDataTypeable
+                        DeriveFoldable DerivingStrategies TypeApplications MultiWayIf
+                        TemplateHaskell GADTs FlexibleContexts TypeOperators DataKinds
+                        PolyKinds AllowAmbiguousTypes FunctionalDependencies
+                        UndecidableInstances
+    ghc-options: -Wall -O0 -Wcompat -Wincomplete-uni-patterns
+                 -Widentities -Wredundant-constraints -Wcpp-undef -fwarn-tabs
+                 -fwarn-unused-imports -fwarn-missing-signatures
+                 -fwarn-name-shadowing -fprint-potential-instances
+                 -fwarn-unused-do-bind -fwarn-wrong-do-bind
+                 -fwarn-incomplete-patterns -Wincomplete-record-updates
+                 -Wmonomorphism-restriction -Wimplicit-prelude
+                 -Woverlapping-patterns -Wmissing-local-signatures
+                 -Wmissing-exported-signatures -Wmissing-export-lists
+                 -Wmissing-home-modules -Widentities -Wredundant-constraints
+                 -Wpartial-fields -threaded
+    build-depends:
+        xmonadrc -any

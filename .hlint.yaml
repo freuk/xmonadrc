@@ -1,0 +1,43 @@
+- group: {name: generalise, enabled: true}
+- group: {name: generalise-for-conciseness, enabled: true}
+- group: {name: use-lens, enabled: true}
+- group: {name: dollar, enabled: true}
+
+- extensions:
+  - default: false
+  - name: [DerivingVia]
+  - name: [NoOverloadedLists]
+  - name: [QuasiQuotes]
+  - name: [ScopedTypeVariables]
+
+- flags:
+  - default: false
+  - {name: ["-fno-warn-partial-fields","-fno-warn-orphans"]}
+  - {name: ["-fno-warn-missing-signatures"], within: ["Export", "PyExport"]}
+
+- modules:
+  - {name: [Data.Set, Data.HashSet], as: Set}
+  - {name: [Data.Map], as: M}
+  - {name: [LMap.Map], as: LM}
+
+- functions:
+  - {name: unsafeInterleaveIO, within: []}
+  - {name: unsafePerformIO, within: []}
+  - {name: unsafeCoerce, within: []}
+
+- warn: {name: Use explicit module export list}
+
+- hint:
+    lhs: pure ()
+    note: Use 'pass'
+    rhs: pass
+- hint:
+    lhs: return ()
+    note: Use 'pass'
+    rhs: pass
+- warn:
+    lhs: foldl' (+) 0
+    rhs: sum
+- warn:
+    lhs: foldl' (*) 1
+    rhs: product
