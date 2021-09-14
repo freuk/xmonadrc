@@ -13,10 +13,9 @@ let
   in (import source { }).ormolu;
 
 in pkgs // rec {
-  lmstuff = pkgs.pkgsi686Linux.callPackage ./vendor { };
-
   inherit ormolu;
 
-  # hlint = pkgs.haskellPackages.hlint;
+  lmstuff = pkgs.pkgsi686Linux.callPackage ./vendor { };
+
   xmonadrc = pkgs.haskellPackages.callCabal2nix "xmonadrc"./. {};
 }
