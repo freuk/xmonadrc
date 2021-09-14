@@ -17,5 +17,5 @@ in pkgs // rec {
 
   lmstuff = pkgs.pkgsi686Linux.callPackage ./vendor { };
 
-  xmonadrc = pkgs.haskellPackages.callCabal2nix "xmonadrc"./. {};
+  xmonadrc = pkgs.haskellPackages.callCabal2nix "xmonadrc" ./. {};
 }
