@@ -1,14 +1,11 @@
 with import ./. { };
 
 haskellPackages.shellFor {
-  packages = p: [ haskellPackages.xmonadrc ];
+  packages = p: [ xmonadrc ];
   withHoogle = true;
   buildInputs = [
     ghcid
     dhall
-    haskellPackages.dhall-to-cabal
-    haskellPackages.panpipe
-    haskellPackages.panhandle
     cabal2nix
     ormolu
     hlint

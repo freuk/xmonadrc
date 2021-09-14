@@ -15,23 +15,8 @@ let
 in pkgs // rec {
   lmstuff = pkgs.pkgsi686Linux.callPackage ./vendor { };
 
-  dhall-to-cabal-resources = pkgs.stdenv.mkDerivation {
-    name = "dhall-to-cabal-resources";
-    src = pkgs.haskellPackages.dhall-to-cabal.src;
-    installPhase = "cp -r dhall $out";
-  };
-
-  haskellPackages = pkgs.haskellPackages.override {
-    overrides = self: super:
-      with pkgs.haskell.lib; rec {
-        xmonadrc = pkgs.haskellPackages.callCabal2nix "xmonadrc"./. {};
-        refined = unmarkBroken super.refined;
-        dhall-to-cabal = unmarkBroken super.dhall-to-cabal;
-        lazysmallcheck2012 = null;
-      };
-  };
   inherit ormolu;
 
-  hlint = haskellPackages.hlint;
-  xmonadrc = haskellPackages.xmonadrc;
+  # hlint = pkgs.haskellPackages.hlint;
+  xmonadrc = pkgs.haskellPackages.callCabal2nix "xmonadrc"./. {};
 }
