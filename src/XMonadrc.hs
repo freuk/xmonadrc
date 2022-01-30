@@ -162,14 +162,12 @@ myKeys XConfig {XMonad.modMask = modMask} =
       ((modMask, xK_l), windows W.focusDown),
       ((modMask, xK_v), pasteSelection),
       ((modMask, xK_a), raiseMaybe (runInTerm "--title alot" "bash -c alot") (title =? "alot")),
-      ((modMask, xK_o), raiseMaybe (runInTerm "--title ikhal" "ikhal") (title =? "ikhal")),
       ((modMask, xK_f), runOrRaise "chromium" (className =? "chromium-browser")),
       ((modMask, xK_n), viewEmptyWorkspace),
       ((modMask, xK_u), sendMessage $ Toggle NBFULL),
       ((modMask, xK_e), runOrRaisePrompt myXPConfig),
       ((modMask, xK_BackSpace), spawn "rofi-pow"),
       ((modMask, xK_Delete), spawn "slock"),
-      ((modMask, xK_k), raiseMaybe (runInTerm "--title khal -o background_opacity=0.7" "zikhal") (title =? "ikhal")),
       ((modMask .|. shiftMask, xK_c), passGeneratePrompt myXPConfig),
       ((modMask, xK_w), windowPrompt myXPConfig Goto wsWindows),
       ((modMask, xK_s), promptSearch myNoAutoCompleteXPConfig myEngine),
@@ -183,9 +181,9 @@ myKeys XConfig {XMonad.modMask = modMask} =
       ((modMask .|. shiftMask, xK_apostrophe), kill),
       ((modMask, xK_m), withFocused minimizeWindow),
       ((modMask, xK_space), spawn "guake-toggle"),
-      ((modMask .|. shiftMask, xK_space), withFocused $ windows . W.sink),
-      ((modMask, xK_Tab), moveTo Next NonEmptyWS),
-      ((modMask .|. shiftMask, xK_Tab), moveTo Prev NonEmptyWS)
+      ((modMask .|. shiftMask, xK_space), withFocused $ windows . W.sink)
+      -- ((modMask, xK_Tab), moveTo Next NonEmptyWS),
+      -- ((modMask .|. shiftMask, xK_Tab), moveTo Prev NonEmptyWS)
     ]
 
 myMouseBindings :: XConfig l -> Map (KeyMask, Button) (Window -> X ())
