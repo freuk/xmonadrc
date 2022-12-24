@@ -155,7 +155,7 @@ myKeys XConfig {XMonad.modMask = modMask} =
   M.fromList
     [ ((modMask, xK_Return), spawn "kitty --class=kittyFromXmonad"),
       ((modMask .|. shiftMask, xK_Return), spawn "kitty"),
-      ((modMask, xK_p), mateRun),
+      ((modMask, xK_p), runOrRaisePrompt myXPConfig),
       ((modMask .|. shiftMask, xK_h), windows W.swapUp),
       ((modMask .|. shiftMask, xK_l), windows W.swapDown),
       ((modMask, xK_h), windows W.focusUp),
@@ -165,7 +165,7 @@ myKeys XConfig {XMonad.modMask = modMask} =
       ((modMask, xK_f), runOrRaise "chromium" (className =? "chromium-browser")),
       ((modMask, xK_n), viewEmptyWorkspace),
       ((modMask, xK_u), sendMessage $ Toggle NBFULL),
-      ((modMask, xK_e), runOrRaisePrompt myXPConfig),
+      ((modMask, xK_space),mateRun ),
       ((modMask, xK_BackSpace), spawn "rofi-pow"),
       ((modMask, xK_Delete), spawn "slock"),
       ((modMask .|. shiftMask, xK_c), passGeneratePrompt myXPConfig),
@@ -180,10 +180,7 @@ myKeys XConfig {XMonad.modMask = modMask} =
       ((modMask, xK_F9), spawn "xbacklight -inc 10"),
       ((modMask .|. shiftMask, xK_apostrophe), kill),
       ((modMask, xK_m), withFocused minimizeWindow),
-      ((modMask, xK_space), spawn "guake-toggle"),
       ((modMask .|. shiftMask, xK_space), withFocused $ windows . W.sink)
-      -- ((modMask, xK_Tab), moveTo Next NonEmptyWS),
-      -- ((modMask .|. shiftMask, xK_Tab), moveTo Prev NonEmptyWS)
     ]
 
 myMouseBindings :: XConfig l -> Map (KeyMask, Button) (Window -> X ())
